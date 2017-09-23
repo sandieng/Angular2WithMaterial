@@ -12,6 +12,7 @@ import { NavComponent } from './nav.component';
 import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
 import { WebService } from './web.service';
+import { AuthService } from './auth.service';
 
 var routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,6 @@ var routes = [
   imports:      [ BrowserModule, HttpModule, MaterialModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, RouterModule.forRoot(routes) ],
   declarations: [ AppComponent, NavComponent, HomeComponent, RegisterComponent, MessagesComponent, NewMessageComponent ],
   bootstrap:    [ AppComponent ],
-  providers:    [ WebService ]
+  providers:    [ WebService, AuthService ]
 })
 export class AppModule { }

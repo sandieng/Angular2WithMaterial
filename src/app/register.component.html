@@ -17,6 +17,8 @@
         </md-input-container>
 
         <br>
+        <span *ngIf="form.errors?.mismatchedFields">Passwords do not match</span>
+        <br>
 
         <button md-raised-button>Register</button>
     </form>
