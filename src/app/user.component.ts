@@ -6,15 +6,17 @@ import { WebService } from './web.service';
     template: `
         <md-card class="card">
             <md-input-container>
-                <input mdInput placeholder="First Name" [(ngModel)]="model.firstName">
+                <input mdInput [(ngModel)]="model.firstName" placeholder="First Name">
             </md-input-container>
             <md-input-container>
-            <input mdInput placeholder="Last Name" [(ngModel)]="model.lastName">
-        </md-input-container>
+                <input mdInput [(ngModel)]="model.lastName" placeholder="Last Name">
+            </md-input-container>
+            <button md-raised-button color="primary" (click)="saveUser(model)">Save Changes</button>
         </md-card>
     `
 })
 export class UserComponent {
+
     model = {
         firstName: '',
         lastName: ''
@@ -23,9 +25,13 @@ export class UserComponent {
     constructor(private webService: WebService) {}
 
     ngOnInit() {
-        this.webService.getUser().subscribe(res => {
+        this.webService.getUser().subscribe( res => {
             this.model.firstName = res.firstName;
             this.model.lastName = res.lastName;
         })
+    }
+
+    saveUser(userData) {
+        this.webService.saveUser(userData).subscribe();
     }
 }
