@@ -28,6 +28,9 @@ export class MessagesComponent {
         // Subscribes to changes in messages
         this.webService.messages.subscribe(x => {
             this.messages = x;
-        })
+        });
+
+        // Test: Get user information
+        this.webService.getUser().subscribe();
     }
 }

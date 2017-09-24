@@ -18,10 +18,10 @@ export class RegisterComponent {
         this.form = fb.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            email: ['', [Validators.required, emailValid()]],   // Multiple validators for email
+            email: ['', [Validators.required, emailValid()]],   // Multiple validators for email: field is mandatory and must conform to email format
             password: ['', Validators.required],
             confirmPassword: ['', Validators.required]
-        }, { validator: matchingFields('password', 'confirmPassword') }
+        }, { validator: matchingFields('password', 'confirmPassword') } // Global validators for all fields
         )
     }
 
