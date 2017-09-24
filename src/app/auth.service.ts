@@ -43,7 +43,7 @@ export class AuthService {
             this.authenticate(resp);
         },
             error => {
-                this.sb.open("Login failed", 'close', { duration: 2000 });
+                this.sb.open("Login failed: " + error.json(), 'close', { duration: 2000 });
             })
     }
 
